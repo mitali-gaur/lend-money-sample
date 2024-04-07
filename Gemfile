@@ -62,6 +62,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # For debugging
+  gem 'pry'
 end
 
 group :test do
@@ -70,8 +73,21 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# for admin functionality
+# For admin functionality
 gem 'activeadmin'
 
 # For user authentication
 gem 'devise'
+
+gem 'sass-rails'
+
+# For background jobs
+gem "sidekiq", "~> 7.2"
+gem "sidekiq-cron"
+# gem 'sidekiq-scheduler'
+
+# For pagination
+gem "kaminari"
+
+# For accessing mails
+gem "letter_opener", group: :development

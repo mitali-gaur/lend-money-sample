@@ -1,0 +1,6 @@
+calculate_interest:
+  cron: '0 * * * * *'   # Runs once per minute
+  class: CalculateInterestJob
+auto_repay_loans:
+  cron: '0 * * * * *'   # Runs once per minute
+  class: AutoRepayLoanJob

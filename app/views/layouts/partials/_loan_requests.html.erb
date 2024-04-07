@@ -1,0 +1,37 @@
+<div style="font-size: 2rem;">
+  <%= paginate loans, param_name: :requested_loans_page %>
+</div>
+
+<div class="loan-details-container">
+  <h2>Loan Requests</h2>
+  <table class="loan-details-table">
+    <thead>
+      <tr>
+        <th>SNo.</th>
+        <th>Amount</th>
+        <th>Requested Date</th>
+        <th>Current Status</th>
+        <th>Confirmation Request by Admin</th>
+        <th>Interest %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if !loans.present? %>
+        <tr><td colspan=6 style='text-align: center'>No records found</td></tr>
+      <% else %>
+        <% loans.each_with_index do |loan, idx| %>
+          <tr>
+            <td><%= idx + 1 %></td>
+            <td><%= number_with_precision(loan.amount, precision: 2) %></td>
+            <td><%= loan.created_at.strftime("%B %d, %Y") %></td>
+            <td><%= loan.state.capitalize.gsub('_', ' ') %></td>
+            <td>
+              <%= accept_reject_confirmation_button(loan) %>
+            </td>
+            <td><%= "#{loan.interest_rate_in_percentage} %" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,7 @@
+<div class="loan-button-container">
+  <%= button_to 'Request New Loan', new_loan_path, method: :get, class: 'btn btn-primary' %>
+</div>
+
+<%= render 'layouts/partials/loan_requests', loans: @requested_loans %>
+<%= render 'layouts/partials/active_loans', loans: @active_loans %>
+<%= render 'layouts/partials/paid_loans', loans: @paid_loans %>

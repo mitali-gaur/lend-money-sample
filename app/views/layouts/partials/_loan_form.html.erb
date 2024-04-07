@@ -1,0 +1,14 @@
+<div class="loan-form-container">
+  <h1>Request New Loan</h1>
+
+  <%= form_with(model: @loan, local: true, class: 'loan-form') do |form| %>
+    <div class="field">
+      <%= form.label :amount, 'Loan Amount' %>
+      <%= form.number_field :amount, step: 0.01 %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Send Request", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

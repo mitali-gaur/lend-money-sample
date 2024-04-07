@@ -1,0 +1,25 @@
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <%= link_to root_path do %>
+        <%= image_tag 'dollar-white.png', alt: 'Logo' %>
+      <% end %>
+    </div>
+    <% if current_user %>
+      <div style='color: black; font-weight: bold'>Wallet balance: Rs. <%= @wallet.amount.to_f %></div>
+    <% end %>
+
+    <nav>
+      <ul>
+        <% if current_user %>
+          <li>
+            <div style='color: black; line-height: 12px; margin-right: 3px; padding: 7px 16px 6px;'><%= current_user.email %></div>
+          </li>
+          <li>
+            <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn-logout' %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

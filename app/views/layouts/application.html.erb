@@ -11,6 +11,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/partials/header' %>
+    <div class="container">
+      <%= render 'layouts/partials/flash_messages' %>
+      <%= yield %>
+    </div>
+
+    <%= render 'layouts/partials/footer' %>
   </body>
 </html>
